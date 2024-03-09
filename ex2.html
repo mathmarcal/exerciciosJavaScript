@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Exércício 2 | Ordem</title>
+</head>
+
+<body>
+    <main>
+        <h1>Ordernar Números</h1>
+        <section>
+            <label for="number" style="letter-spacing: 0px;">Coloque os número separados por vírgulas que deseja ordernar: </label>
+            <input type="text" id="numbers">
+            <button onclick="order()">Enviar</button>
+            <p id="resultado"></p>
+        </section>
+    </main>
+
+
+    <script>
+        function order() {
+            var numbers = document.getElementById('numbers').value.trim();
+            var numbersList = numbers.split(/[,\s]+/);
+
+            numbersList = numbersList.map(function(num) {
+                return parseInt(num);
+            })
+
+            numbersList.sort(function(a, b) {
+                return b - a;
+            });
+
+            var resultado = document.getElementById('resultado');
+
+            resultado.innerHTML = 'Números Odernados => ' + numbersList.join(", ")
+
+        }
+
+    </script>
+
+</body>
+
+</html>
